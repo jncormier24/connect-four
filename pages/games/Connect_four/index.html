@@ -2,21 +2,21 @@
 <html>
 	<head>
 		<title>Connect 4</title>
-		<link rel="stylesheet" type="text/css" href="">
+		<link rel="stylesheet" type="text/css" href="connect.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script>
-			$(function draw_board(){
-				for(i = 0; i < 8; i++){
-					document.write("<div class='row"+i+"'>");
-					for(j = 0; j < 7; j++){
-						document.write("<div class='column"+j+"'></div>");
-					}
-					document.write("</div>");
-				}
-			});
-		</script>
+		<!-- Include game-specific javascript -->
+		<script type="text/javascript" src="connect.js"></script>
 	</head>
 	<body>
-		<script>draw_board();</script>
+	<div id="board">
+	<!-- Placeholder for game board - we can build other things around it and not worry about effecting them. --> 
+	</div>
+		<script>
+		//wait until page is created...
+			$(document).ready(function(){
+				//run function on document.ready - function defined in connect.js
+				draw_grid(6,7);
+			});
+		</script>
 	</body>
 </html>
