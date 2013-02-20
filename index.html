@@ -5,13 +5,65 @@
 		<link rel="stylesheet" type="text/css" href="css/connect.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/connect.js"></script>
+		<script type="text/javascript" src="js/c4.js"></script>
 	</head>
 	<body>
-	<div id="board"></div>
+		<div id='wrapper'>
+			<div id='left'>
+				<div id='player'>
+					<div id='pnum' class='player1'></div>
+					<div id='pname'>Player 1</div>
+				</div>
+			</div>
+			<div id="board"></div>
+			<div id='right'>
+				This is where the score stuff goes...
+			</div>
+		</div>
+
 		<script>
 			$(document).ready(function() {
+				$('#player').data( 'player', 0);
 				draw_grid(6,7);
+				function changePlayer(){
+					var current = $('#player').data( 'player');
+					if(current==1){
+						$('#player').data( 'player', 0);
+						$('#pname').text('Player 1');
+					}else{
+						$('#player').data( 'player', 1);
+						$('#pname').text('Player 2');
+					}
+					$('#pnum').toggleClass('player1').toggleClass('player2');
+				}
+				function setChecker(row, column, player){
+					/* Assume Susan gets it to work... */
+				}
+				function checkWin(){
+					/* Assume Susan gets it to work... */
+					return false;
+				}
+				
+				function animateChecker(row, col, player){
+					var ckrClass = 'player'+(player+1);
+					var dropper="<div class='"+ckrClass+"'></div>";
+					$('#c'+col+'r'+row).html(dropper); 
+				}
+				
+				$(".cell").click(function() {
+					var column = $(this).attr("id");
+					column = column.substring(1,column.indexOf("r"));
+					var row=findRow(column);
+					var player = $('#player').data( 'player');
+					setChecker(row, column, player);
+					animateChecker(row, column, player);
+					if(checkWin()){
+						endGame();
+					}else{
+						changePlayer();
+					}
+				})
 			});
 		</script>
 	</body>
-</html>   
+</html>

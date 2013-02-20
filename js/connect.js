@@ -9,9 +9,9 @@ function draw_grid(rows,cols){
 			/* Added text here to "fill" the grid boxes so we can see them for now 
 			also changed the class to an id based on row/column
 			*/
-			board+="<div class='cell' id='r"+i+"c"+j+"'>Cell</div>";
+			board+="<div class='cell' id='c"+j+"r"+i+"'></div>";
 		}
 		board+="</div>";
 	}
-	$('body').html(board);
+	$('#board').html(board);
 }
