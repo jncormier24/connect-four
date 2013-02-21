@@ -18,11 +18,12 @@ float:left;
 }
 .player1{
 	background-image:url('../img/red.png');
-	width:100px;height:100px;
 }
 .player2{
 	background-image:url('../img/black.png');
-	width:100px;height:100px;
+}
+.free{
+	background-image:none;
 }
 
 .row{
