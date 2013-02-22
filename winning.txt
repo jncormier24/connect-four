@@ -1,14 +1,3 @@
-procedure DFS(G,v):
-    label v as explored
-    for all edges e in G.adjacentEdges(v) do
-        if edge e is unexplored then
-            w ← G.adjacentVertex(v,e)
-            if vertex w is unexplored then
-                label e as a discovery edge
-                recursively call DFS(G,w)
-            else
-                label e as a back edge
-
 procedure BFS(G,v):
     create a queue Q
     enqueue v onto Q
@@ -23,6 +12,7 @@ procedure BFS(G,v):
                 mark u
                 enqueue u onto Q
     return none
+
 
 square = {
   player : '',
